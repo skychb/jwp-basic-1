@@ -10,6 +10,10 @@ import next.model.User;
 public class DataBase {
 	private static Map<String, User> users = Maps.newHashMap();
 	
+	static {
+		users.put("1", new User("1", "12", "1", "1@1"));
+	}
+	
 	public static void addUser(User user) {
 		users.put(user.getUserId(), user);
 	}

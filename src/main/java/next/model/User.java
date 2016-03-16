@@ -6,6 +6,7 @@ public class User {
 	private String name;
 	private String email;
 
+
 	public User(String userId, String password, String name, String email) {
 		this.userId = userId;
 		this.password = password;
@@ -27,6 +28,12 @@ public class User {
 
 	public String getEmail() {
 		return email;
+	}
+	
+	public void update(User updateUser){
+		this.password = updateUser.password;
+		this.email = updateUser.email;
+		this.name = updateUser.name;
 	}
 
 	@Override
@@ -64,6 +71,10 @@ public class User {
 		} else if (!userId.equals(other.userId))
 			return false;
 		return true;
+	}
+
+	public boolean checkPw(String pw) {
+		return this.password.equals(pw);
 	}
 	
 	
