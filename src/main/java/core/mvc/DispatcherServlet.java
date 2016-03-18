@@ -37,7 +37,6 @@ public class DispatcherServlet extends HttpServlet {
 			move(viewName, req, resp);
 		} catch (Throwable e) {
 			logger.error("Exception : {}", e);
-			throw new ServletException(e.getMessage());
 		}
 	}
 	
