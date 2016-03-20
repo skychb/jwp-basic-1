@@ -15,19 +15,17 @@ public class QuestionController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String questionId = req.getParameter("questionId");
 		QuestionDao qd = new QuestionDao();
 		AnswerDao ad = new AnswerDao();
 		
 		
-//		int questionId = Integer.parseInt(req.getParameter("questionId"));
+		int questionId = Integer.parseInt(req.getParameter("questionId"));
 		Question qs = qd.findByQuestionId(questionId);
 		if (qs == null) {
             throw new NullPointerException("사용자를 찾을 수 없습니다.");
         }
-		List<Answer> as = ad.findByQuestionId(req.getParameter("questionId"));
 		req.setAttribute("question", qs);
-		req.setAttribute("answers", as);
+		req.setAttribute("answers", ad.findByQuestionId(questionId));
 		return "/qna/show.jsp";
 	}
 	

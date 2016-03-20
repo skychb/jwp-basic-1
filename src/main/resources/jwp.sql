@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS QUESTIONS;
 
 CREATE TABLE QUESTIONS (
 	questionId 			bigint				auto_increment,
-	writer				varchar(30)			NOT NULL,
+	writer				varchar(30)			not null,
 	title				varchar(50)			NOT NULL,
 	contents			varchar(5000)		NOT NULL,
 	createdDate			timestamp			NOT NULL,
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS ANSWERS;
 
 CREATE TABLE ANSWERS (
 	answerId 			bigint				auto_increment,
-	writer				varchar(30)			NOT NULL,
+	writer				varchar(30)			not null,
 	contents			varchar(5000)		NOT NULL,
 	createdDate			timestamp			NOT NULL,
 	questionId			bigint				NOT NULL,				

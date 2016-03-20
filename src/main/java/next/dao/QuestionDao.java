@@ -11,8 +11,8 @@ import next.model.Question;
 public class QuestionDao {
 	    public void insert(Question question) {
 	        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-	        String sql = "INSERT INTO QUESTIONS VALUES (?, ?, ?, ?, ?, ?)";
-	        jdbcTemplate.update(sql, question.getQuestionId(),
+	        String sql = "INSERT INTO QUESTIONS ( writer, title, contents, createdDate, countOfAnswer) VALUES(?,?,?,?,?)";
+	        jdbcTemplate.update(sql, 
 	                question.getWriter(),
 	                question.getTitle(),
 	                question.getContents(),
@@ -21,9 +21,9 @@ public class QuestionDao {
 	        		);
 	    }
 
-	    public Question findByQuestionId(String questionId) {
+	    public Question findByQuestionId(int questionId) {
 	        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-	        String sql = "SELECT questionId, writer, title, contents, createdDate, countOfAnswer FROM QUESTIONS WHERE userid=?";
+	        String sql = "SELECT questionId, writer, title, contents, createdDate, countOfAnswer FROM QUESTIONS WHERE questionId=?";
 	        
 	        RowMapper<Question> rm = new RowMapper<Question>() {
 	            @Override
@@ -32,7 +32,7 @@ public class QuestionDao {
 	                        rs.getString("writer"), 
 	                        rs.getString("title"),
 	                        rs.getString("contents"),
-	                        rs.getDate("createdDate"),
+	                        rs.getTimestamp("createdDate"),
 	                        rs.getInt("countOfAnswer"));
 	            }
 	        };
@@ -51,7 +51,7 @@ public class QuestionDao {
 	                        rs.getString("writer"), 
 	                        rs.getString("title"),
 	                        rs.getString("contents"),
-	                        rs.getDate("createdDate"),
+	                        rs.getTimestamp("createdDate"),
 	                        rs.getInt("countOfAnswer"));
 	            }
 	        };

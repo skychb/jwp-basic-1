@@ -1,19 +1,19 @@
 package next.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Answer {
 	private int answerId;
 	private String writer;
 	private String contents;
-	private Date createdDate;
+	private Timestamp createdDate;
 	private int questionId;
 	
 	public Answer(String writer, String contents){
-		this(0, writer, contents, new Date(), 0);
+		this(0, writer, contents, new Timestamp(10), 0);
 	}
 
-	public Answer(int answerId, String writer, String contents, Date createdDate, int questionId){
+	public Answer(int answerId, String writer, String contents, Timestamp createdDate, int questionId){
 		this.answerId = answerId;
 		this.writer = writer;
 		this.contents = contents;
@@ -30,11 +30,8 @@ public class Answer {
 	public String getContents(){
 		return contents;
 	}
-	public Date getCreatedDate(){
+	public Timestamp getCreatedDate(){
 		return createdDate;
-	}
-	public long getTimeForNow(){
-		return this.createdDate.getTime();
 	}
 	public int getQuestionId(){
 		return questionId;

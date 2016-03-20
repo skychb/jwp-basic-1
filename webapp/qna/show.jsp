@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -56,15 +55,15 @@
                       <p class="qna-comment-count"><strong>${question.countOfAnswer}</strong>개의 의견</p>
                       <div class="qna-comment-slipp-articles">
 					<c:forEach items="${answers}" var="answer" varStatus="status">
-                          <article class="article" id="answer-${answer.answerId}">
+                          <article class="article" id="answer-1405">
                               <div class="article-header">
                                   <div class="article-header-thumb">
                                       <img src="https://graph.facebook.com/v2.3/1324855987/picture" class="article-author-thumb" alt="">
                                   </div>
                                   <div class="article-header-text">
                                       <a href="/users/profile?userId=${answer.writer}" class="article-author-name">${answer.writer}</a>
-                                      <a href="#answer-${answer.writer}" class="article-header-time" title="퍼머링크">
-                                          <fmt:formatDate type="date" value="${answer.createdDate}" />
+                                      <a href="#answer-1434" class="article-header-time" title="퍼머링크">
+                                          ${answer.createdDate}
                                       </a>
                                   </div>
                               </div>
@@ -74,10 +73,10 @@
                               <div class="article-util">
                                   <ul class="article-util-list">
                                       <li>
-                                          <a class="link-modify-article" href="/questions/${question.questionId}/answers/${answer.answerId}/form">수정</a>
+                                          <a class="link-modify-article" href="/questions/413/answers/1405/form">수정</a>
                                       </li>
                                       <li>
-                                          <form class="form-delete" action="/questions/${question.questionId}/answers/${answer.answerId}" method="POST">
+                                          <form class="form-delete" action="/questions/413/answers/1405" method="POST">
                                               <input type="hidden" name="_method" value="DELETE">
                                               <button type="submit" class="link-delete-article">삭제</button>
                                           </form>
