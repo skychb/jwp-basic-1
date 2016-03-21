@@ -26,6 +26,8 @@ public class CreateQuestionController implements Controller{
 				req.getParameter("contents"),
 				new Timestamp(Calendar.getInstance().getTime().getTime()),
 				0);
+		
+		System.out.println("Question :" + question);
 		QuestionDao questionDao = new QuestionDao();
 		questionDao.insert(question);
 		return "redirect:/";

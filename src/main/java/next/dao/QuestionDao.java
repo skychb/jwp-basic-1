@@ -11,7 +11,7 @@ import next.model.Question;
 public class QuestionDao {
 	    public void insert(Question question) {
 	        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-	        String sql = "INSERT INTO QUESTIONS ( writer, title, contents, createdDate, countOfAnswer) VALUES(?,?,?,?,?)";
+	        String sql = "INSERT INTO QUESTIONS ( writer, title, contents, createdDate, countOfAnswer) VALUES (?,?,?,?,?)";
 	        jdbcTemplate.update(sql, 
 	                question.getWriter(),
 	                question.getTitle(),
