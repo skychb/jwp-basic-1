@@ -1,13 +1,17 @@
 package next.controller.qna;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import next.dao.AnswerDao;
-import next.model.Result;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import core.jdbc.DataAccessException;
 import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
+import next.dao.AnswerDao;
+import next.model.Result;
 
 public class DeleteAnswerController extends AbstractController {
     private AnswerDao answerDao = new AnswerDao();
@@ -23,6 +27,7 @@ public class DeleteAnswerController extends AbstractController {
 		} catch (DataAccessException e) {
 			mav.addObject("result", Result.fail(e.getMessage()));
 		}
+		
 		return mav;
 	}
 }
